@@ -1,27 +1,29 @@
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <div class="topnav">
-            <div class="logo">
-                <a href="home.html" class="active">
-                    <img src="assets/Full Logo.png" alt="Logo">
-                </a>
-            </div>
-            <div class="buttons">
-                <a href="features.html"class="active">FEATURES</a>
-                <a href="pricing.html"class="button">PRICING</a>
-                <a href="join.html"class="button">JOIN</a>
-                <a href="team.html"class="button">TEAM</a>
-            </div>
-          </div>
-    </head>
-    <body style="cursor: url('assets/Strawberry\ normal\ select.cur'), default" >
-        <p>
-            <div class="showcase">
-                <h1 class="showcase-text">Your Online Network of</h1>
-                <h1 class="3D-Printers">3D Printers</h1>
-                <img src="assets/car.png" alt="Logo">
-            </div>
-        </p>
+    <body>
+        <div class="head">
+            <h1>Printing price estimate</h1>
+        </div>
+        <div class="checkboxes">
+
+            <p>Printing material:</p>
+            <input type="checkbox" id="carbon" name="material" value="carbon">
+            <label for="carbon">I want to print with carbon fiber</label><br>
+            <input type="checkbox" id="plastic" name="material" value="plastic">
+            <label for="plastic">I want to print with plastic fillaments</label><br>
+
+            <p>Print colour:</p>
+            <input type="checkbox" id="black" name="colour" value="black">
+            <label for="black">I want to print in black</label><br>
+
+            <p>Printing size:</p>
+            <form action="/action_page.php">
+                <label for="width">Width (cm):</label>
+                <input type="number" id="width" name="width"><br><br>
+                <label for="lenght">Lenght (cm):</label>
+                <input type="number" id="lenght" name="lenght"><br><br>
+                <label for="height">Height (cm):</label>
+                <input type="number" id="heiht" name="height"><br><br>
+            </form>
+        </div>
     </body>
 </html>

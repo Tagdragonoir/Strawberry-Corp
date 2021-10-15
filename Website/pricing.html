@@ -14,61 +14,76 @@
         </div>
     </head>
     <body>
-        <div class="head">
-            <h1>Printing price estimate</h1>
-        </div>
         <div class="priceEstimates">
+            <h1>Printing price estimate</h1>
+            <p>Printing with carbon costs twice as much as printing with plastic.</p>
+            <label for="material">Printing material:</label>
+            <input list="materials" id="material" name="material"/><br><br>
+            <datalist id="materials">
+                <option value="Carbon">
+                <option value="Plastic">
+            </datalist>
 
-            <p>Printing material:</p>
-            <input type="checkbox" id="carbon" name="material" value="true">
-            <label for="carbon">I want to print with carbon fiber</label><br>
-            <input type="checkbox" id="plastic" name="material" value="true">
-            <label for="plastic">I want to print with plastic fillaments</label><br>
-
-            <p>Printing size:</p>
+            <p>Dimensions over 50cm are not supported (Our printers aren't that big!).</p>
+            <p>Printing dimensions:</p>
             <form action="/action_page.php">
                 <label for="width">Width (cm):</label>
                 <input type="number" id="width" name="width"><br><br>
                 <label for="lenght">Lenght (cm):</label>
                 <input type="number" id="lenght" name="lenght"><br><br>
                 <label for="height">Height (cm):</label>
-                <input type="number" id="height" name="height"><br><br>
+                <input type="number" id="height" name="height"><br>
             </form>
+
             <script>
                 function myPrice(){
                     var width=document.getElementById("width").value;
                     var lenght=document.getElementById("lenght").value;
                     var height=document.getElementById("height").value;
-                    var size=(width*lenght);
+                    var material=document.getElementById("material").value;
+                    var size=(width*lenght*height);
                     var price="";
 
-                    if(height<100){
-                        if(size<=50){
-                        price="10$";
-                        }else if(50<size && size<=100){
-                            price="15$";
-                        }else if(100<size && size<=150){
-                            price="20$";
-                        }else if(150<size && size<=200){
-                            price="40$";
-                        }else if(250<size && size<=300){
-                            price="60$";
+                    if(width !=0 && lenght != 0 && height != 0){                         
+                        if(width<=50){
+                            if(lenght<=50){
+                                 if(height<=50){
+                                     if(material=="Carbon"){
+                                        price=Math.round(size*0.02);
+                                        if(price<5){
+                                            price="5$"
+                                        }else{
+                                            price=price+"$"
+                                        }
+                                     }else if(material=="Plastic"){
+                                        price=Math.round(size*0.01);
+                                        if(price<5){
+                                            price="5$"
+                                        }else{
+                                            price=price+"$"
+                                        }
+                                     }else{
+                                        price="Please select a material";
+                                     }
+                                }else{
+                                    price="Print height unsupported";
+                                }
+                            }else{
+                                price="Print lenght unsupported";
+                            }
                         }else{
-                            price="Print size is too big for our printers!";
+                            price="Print width unsupported";
                         }
                     }else{
-                        price="Print height is too big for our printers!"
+                        price="Please enter all dimensions first";
                     }
-
-                    if(document.getElementById("carbon") == true){
-                        price=price*2
-                    }
-
-                    document.getElementById("showPrice").innerHTML = price;
+                document.getElementById("showPrice").innerHTML = price;
                 }
+
             </script>
             <button type="button" onclick="myPrice()">Calculate</button>
-            <p id="showPrice">Price estimate:</p>
+            <p>Price estimate before tax and shipping:</p>
+            <p id="showPrice"> </p>
         </div>
     </body>
 </html>

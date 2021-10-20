@@ -6,6 +6,8 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="../libraries/p5.js"></script>
+    <script src="../libraries/WebGL_Obj_Loader-main/scripts/main.js"></script>
     <!-- <script src="main.js" defer></script> -->
 </head>
 <body>
@@ -13,65 +15,63 @@
     <canvas></canvas>
     <canvas></canvas>
     <script>
-        const canvas = document.querySelector('canvas');
-        const gl = canvas.getContext('webgl');
+        var button;
+        function setup() {
+        createCanvas(windowWidth, windowHeight, WEBGL);
+        
+        };
 
-        if (!gl) {
-            throw new Error('WebGL not supported');
-        }
+        function draw() {
+            background(255);
+            ambientLight(60, 60, 60);
+            pointLight(255, 255, 255, -1000, -1000, 1000);
 
-        // vertexData = [...]
+            orbitControl();
+            ambientMaterial(250);
+            box(windowWidth/2, windowWidth/2, windowWidth/2);
+            pop();
 
-        // create buffer
-        // load vertexData into buffer
+            translate(windowWidth/4, windowWidth/4, windowWidth/4);
+            normalMaterial();
+            sphere(windowWidth / 32);
+            pop();
 
-        // create vertex shader
-        // create fragment shader
-        // create program
-        // attach shaders to program
+            translate(-windowWidth/2, 0, 0);
+            normalMaterial();
+            sphere(windowWidth / 32);
+            pop();
 
-        // enable vertex attributes
+            translate(0, -windowWidth/2, 0);
+            normalMaterial();
+            sphere(windowWidth / 32);
+            pop();
 
-        // draw
+            translate(windowWidth/2, 0, 0);
+            normalMaterial();
+            sphere(windowWidth / 32);
+            pop();
 
-        const vertexData = [
-            0, 1, 0,
-            1, -1, 0,
-            -1, -1, 0,
-        ];
+            translate(0, windowWidth/2, -windowWidth/2);
+            normalMaterial();
+            sphere(windowWidth / 32);
+            pop();
 
-        const buffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexData), gl.STATIC_DRAW);
+            translate(-windowWidth/2, 0, 0);
+            normalMaterial();
+            sphere(windowWidth / 32);
+            pop();
 
-        const vertexShader = gl.createShader(gl.VERTEX_SHADER);
-        gl.shaderSource(vertexShader, `
-        attribute vec3 position;
-        void main() {
-            gl_Position = vec4(position, 1);
-        }
-        `);
-        gl.compileShader(vertexShader);
+            translate(0, -windowWidth/2, 0);
+            normalMaterial();
+            sphere(windowWidth / 32);
+            pop();
 
-        const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-        gl.shaderSource(fragmentShader, `
-        void main() {
-            gl_FragColor = vec4(1, 0, 0, 1);
-        }
-        `);
-        gl.compileShader(fragmentShader);
-
-        const program = gl.createProgram();
-        gl.attachShader(program, vertexShader);
-        gl.attachShader(program, fragmentShader);
-        gl.linkProgram(program);
-
-        const positionLocation = gl.getAttribLocation(program, `position`);
-        gl.enableVertexAttribArray(positionLocation);
-        gl.vertexAttribPointer(positionLocation, 3, gl.FLOAT, false, 0, 0);
-
-        gl.useProgram(program);
-        gl.drawArrays(gl.TRIANGLES, 0, 3);
+            translate(windowWidth/2, 0, 0);
+            normalMaterial();
+            sphere(windowWidth / 32);
+            pop();
+            
+        };
     </script>
 </body>
 </html>

@@ -9,7 +9,7 @@ Colours
 Our colors are simple and give a sensation of perfectionism and professionalism. Our colours are modern and clean.
 These are our color swatches:
 
-- #B0228C (Fandago)
+- #B0228C (Fandango)
 - E56B70 (Candy Pink)
 - #E9E3E6 (Platinum)
 - B2B2B2 (Silver Chalice)
@@ -34,4 +34,5 @@ Links will be buttons, that are either purple or will turn purple on click
 
 Buttons
 =======
-Buttons will be flat and will be fandago (purple). The header buttons will only be fandago if selected.
+Buttons will be flat and will be Fandango (purple). The header buttons' text will turn bold when hovered over, and it will be in a Fandango
+box if selected. Fandango buttons will change in shape when hovered over.

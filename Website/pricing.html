@@ -8,6 +8,52 @@
             <a href="join.html"class="button">JOIN</a>
             <a href="team.html"class="button">TEAM</a>
         </div>
+
+        <script>
+            function myPrice(){
+                var width=document.getElementById("width").value;
+                var lenght=document.getElementById("lenght").value;
+                var height=document.getElementById("height").value;
+                var material=document.getElementById("material").value;
+                var size=(width*lenght*height);
+                var price="";
+
+                if(width !=0 && lenght != 0 && height != 0){                         
+                    if(width<=50){
+                        if(lenght<=50){
+                             if(height<=50){
+                                 if(material=="Carbon"){
+                                    price=Math.round(size*0.02);
+                                    if(price<5){
+                                        price="5$"
+                                    }else{
+                                        price=price+"$"
+                                    }
+                                 }else if(material=="Plastic"){
+                                    price=Math.round(size*0.01);
+                                    if(price<5){
+                                        price="5$"
+                                    }else{
+                                        price=price+"$"
+                                    }
+                                 }else{
+                                    price="Please select a material";
+                                 }
+                            }else{
+                                price="Print height unsupported";
+                            }
+                        }else{
+                            price="Print lenght unsupported";
+                        }
+                    }else{
+                        price="Print width unsupported";
+                    }
+                }else{
+                    price="Please enter all dimensions first";
+                }
+            document.getElementById("showPrice").innerHTML = price;
+            }
+        </script>
     </head>
     <body>
         <div class="priceEstimates">
@@ -31,52 +77,6 @@
                 <input type="number" id="height" name="height"><br>
             </form>
 
-            <script>
-                function myPrice(){
-                    var width=document.getElementById("width").value;
-                    var lenght=document.getElementById("lenght").value;
-                    var height=document.getElementById("height").value;
-                    var material=document.getElementById("material").value;
-                    var size=(width*lenght*height);
-                    var price="";
-
-                    if(width !=0 && lenght != 0 && height != 0){                         
-                        if(width<=50){
-                            if(lenght<=50){
-                                 if(height<=50){
-                                     if(material=="Carbon"){
-                                        price=Math.round(size*0.02);
-                                        if(price<5){
-                                            price="5$"
-                                        }else{
-                                            price=price+"$"
-                                        }
-                                     }else if(material=="Plastic"){
-                                        price=Math.round(size*0.01);
-                                        if(price<5){
-                                            price="5$"
-                                        }else{
-                                            price=price+"$"
-                                        }
-                                     }else{
-                                        price="Please select a material";
-                                     }
-                                }else{
-                                    price="Print height unsupported";
-                                }
-                            }else{
-                                price="Print lenght unsupported";
-                            }
-                        }else{
-                            price="Print width unsupported";
-                        }
-                    }else{
-                        price="Please enter all dimensions first";
-                    }
-                document.getElementById("showPrice").innerHTML = price;
-                }
-
-            </script>
             <button type="button" onclick="myPrice()">Calculate</button>
             <p>Price estimate before tax and shipping:</p>
             <p id="showPrice"> </p>

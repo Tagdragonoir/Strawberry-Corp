@@ -1,15 +1,22 @@
-body {
+.homebody {
   background-image: url("assets/car.png");
   background-image: url("assets/Background.png");
   background-size: 100% 50%;
   background-repeat: no-repeat;
+}
+
+body {
+  position:static;
   margin:0;
   color:black;
 }
 
 header {
   position:static;
-  padding:10px;
+  padding: 10px;
+  left:0;
+  right:0;
+  top:0;
   background-color:rgb(26, 26, 26); color:white;
 }
 
@@ -28,10 +35,12 @@ h1 {
   font-family: Tw Cen MT;
   font-size: 60px;
 }
+
 h2 {
   font-family: Corbel;
   font-size: xx-large;
 }
+
 h3 {
   font-family: Corbel;
   font-size: xx-large;
@@ -53,7 +62,6 @@ label {
   padding: 10px 10px;
   text-decoration: none;
   font-size: 150%;
-  top:100%;
   font-family: Tw Cen MT;
   border-radius: 8px;
 }
@@ -95,6 +103,10 @@ label {
 }
 
 .showcase {
-  margin:40px;
+  margin:20px;
   color:white;
+}
+
+.betterbody {
+  margin: 10px;
 }

@@ -2,7 +2,7 @@ h1 {
     text-align: center;
 } 
 
-.mainheader {
+.mainheader, h1  {
     color: #E56B70;
     text-align: center;
 }
@@ -20,6 +20,17 @@ div.logobox1 {
     margin: auto;  
 }
 
+.strawberrydesc {
+    text-align: center;
+}
+
+.slogan {
+    text-align: center;
+}
+
 .printer {
-    width: 44px;
+    display: block;
+    margin: auto;
+    width: 450px; 
+    height: 200px;
 }

@@ -2,7 +2,7 @@ h1 {
     text-align: center;
 } 
 
-.mainheader, h1  {
+.mainheader  {
     color: #E56B70;
     text-align: center;
 }
@@ -28,7 +28,7 @@ div.logobox1 {
     text-align: center;
 }
 
-.printer {
+.logo {
     display: block;
     margin: auto;
     width: 450px; 

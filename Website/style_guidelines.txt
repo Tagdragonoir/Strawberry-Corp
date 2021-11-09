@@ -12,7 +12,7 @@ These are our color swatches:
 - #B0228C (Fandango)
 - E56B70 (Candy Pink)
 - #E9E3E6 (Platinum)
-- B2B2B2 (Silver Chalice)
+- #B2B2B2 (Silver Chalice)
 - #000000 (Black)
 - #FFFFFF (White)
 

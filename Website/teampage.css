@@ -28,5 +28,9 @@ div.logobox1 {
     display: block;
     margin: auto;
     width: 500px; 
-    height: 200px;
+    height: 300px;
+}
+.pfp {
+    width : 150px;
+    height: 150px;
 }

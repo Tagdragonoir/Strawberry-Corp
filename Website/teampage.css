@@ -20,17 +20,13 @@ div.logobox1 {
     margin: auto;  
 }
 
-.strawberrydesc {
+.strawberrydesc, .slogan {
     text-align: center;
 }
 
-.slogan {
-    text-align: center;
-}
-
-.logo {
+.DITlogo, .printer {
     display: block;
     margin: auto;
-    width: 450px; 
+    width: 500px; 
     height: 200px;
 }
